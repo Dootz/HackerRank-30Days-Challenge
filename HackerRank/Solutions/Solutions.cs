@@ -33,5 +33,28 @@ namespace HackerRank.Solutions
             int totalCost = (int)(mealCost * tipPercent / 100 + mealCost * taxPercent / 100 + mealCost);
             Console.WriteLine("The total meal cost is " + totalCost + " dollars.");
         }
+
+        public static void Day3(int number)
+        {
+            string answer = "";
+            bool flag0, flag1, flag2, flag3 = flag2 = flag1 = flag0 = false;
+            if (number % 2 == 1)
+                answer = "Weird";
+            else
+            {
+                if (number >= 2 && number <= 5)
+                    flag1 = true;
+                else if (number >= 6 && number <= 20)
+                    flag2 = true;
+                else if (number > 20)
+                    flag3 = true;
+            }
+            if (flag1 || flag3)
+                answer = "Not Weird";
+            if (flag2 || flag0)
+                answer = "Weird";
+
+            Console.WriteLine(answer);
+        }
     }
 }
