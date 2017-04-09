@@ -11,7 +11,6 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            Solutions.Solutions.Day2();
         }
     }
 }

@@ -8,12 +8,8 @@ namespace HackerRank.Solutions
 {
     static class Solutions
     {
-        public static void Day1()
+        public static void Day1(string s, int i, double d)
         {
-            int i = 4;
-            double d = 4.0;
-            string s = "HackerRank";
-
             int ii;
             double dd;
             string ss;
@@ -27,19 +23,14 @@ namespace HackerRank.Solutions
             Console.WriteLine(string.Format("{0:0.0}", d + dd));
             Console.WriteLine(s + ss);
         }
-        public static void Day2()
-        {
-            double mealCost;
-            int tipPercent;
-            int taxPercent;
 
+        public static void Day2(double mealCost, int tipPercent, int taxPercent)
+        {
             Double.TryParse(Console.ReadLine(), out mealCost);
             Int32.TryParse(Console.ReadLine(), out tipPercent);
             Int32.TryParse(Console.ReadLine(), out taxPercent);
 
             int totalCost = (int)(mealCost * tipPercent / 100 + mealCost * taxPercent / 100 + mealCost);
-
-            
             Console.WriteLine("The total meal cost is " + totalCost + " dollars.");
         }
     }
