@@ -64,5 +64,26 @@ namespace HackerRank.Solutions
             for (int i = 1; i <= 10; i++)
                 Console.WriteLine(n + " x " + i + " = " + n * i);
         }
+        public static void Day6()
+        {
+            int numberOfTestCases;
+            string inputString;
+            int i;       
+            Int32.TryParse(Console.ReadLine(), out numberOfTestCases);
+            for(int n=0; n <= numberOfTestCases -1; ++n)
+            {
+                string evenString = "";
+                string oddString = "";
+                inputString = Console.ReadLine();
+                for (i = 0; i<= inputString.Length-1; ++i)
+                {
+                    if (i % 2 == 1)
+                        evenString += inputString[i];
+                    else
+                        oddString += inputString[i];
+                }
+                Console.WriteLine(oddString + " " + evenString);
+            }
+        }
     }
 }
