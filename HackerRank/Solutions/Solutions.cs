@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace HackerRank.Solutions
@@ -93,6 +94,35 @@ namespace HackerRank.Solutions
             for (int i = n; i >= 0; i--)
             {
                 Console.Write(arr[i - 1] + " ");
+            }
+        }
+        public static void Day8()
+        {
+            List<Person> phoneBook = new List<Person>();
+            int n = Convert.ToInt32(Console.ReadLine());
+            string input;
+            for (int i = 0; i <= n - 1; i++)
+            {
+                input = Console.ReadLine();
+                Regex regex = new Regex(@"\s");
+                string[] bits = regex.Split(input.ToLower());
+                phoneBook.Add(new Person{ name = bits[0], number = bits[1] });
+            }
+            while(true)
+            {
+                string nameToFind = Console.ReadLine();
+                if (nameToFind.ToLower().Equals("Exit"))
+                    break;
+
+                var result = phoneBook.Find(i => i.name.Equals(nameToFind));
+                if(result != null)
+                {
+                    Console.WriteLine(result.name + "=" + result.number);
+                }
+                else
+                {
+                    Console.WriteLine("Not found");
+                }
             }
         }
     }

@@ -9,8 +9,10 @@ namespace HackerRank.Solutions
     // Challenge Day 4
     class Person
     {
-        public int age;
-        public Person(int initialAge)
+       // public int age;
+        public string name;
+        public string number;
+       /* public Person(int initialAge)
         {
             // Add some more code to run some checks on initialAge
             if (initialAge < 0)
@@ -41,6 +43,6 @@ namespace HackerRank.Solutions
         {
             // Increment the age of the person in here
             age++;
-        }
+        }*/
     }
 }
