@@ -98,7 +98,7 @@ namespace HackerRank.Solutions
         }
         public static void Day8()
         {
-            List<Person> phoneBook = new List<Person>();
+            Dictionary<string, int> phoneBook = new Dictionary<string, int>();
             int n = Convert.ToInt32(Console.ReadLine());
             string input;
             for (int i = 0; i <= n - 1; i++)
@@ -106,7 +106,7 @@ namespace HackerRank.Solutions
                 input = Console.ReadLine();
                 Regex regex = new Regex(@"\s");
                 string[] bits = regex.Split(input.ToLower());
-                phoneBook.Add(new Person{ name = bits[0], number = bits[1] });
+                phoneBook.Add( bits[0], Convert.ToInt32(bits[1]));
             }
             while(true)
             {
@@ -114,10 +114,10 @@ namespace HackerRank.Solutions
                 if (nameToFind.ToLower().Equals("Exit"))
                     break;
 
-                var result = phoneBook.Find(i => i.name.Equals(nameToFind));
-                if(result != null)
+                var result = phoneBook.ContainsKey(nameToFind);
+                if(result)
                 {
-                    Console.WriteLine(result.name + "=" + result.number);
+                    Console.WriteLine(nameToFind + "=" +phoneBook[nameToFind]);
                 }
                 else
                 {
