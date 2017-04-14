@@ -85,5 +85,15 @@ namespace HackerRank.Solutions
                 Console.WriteLine(oddString + " " + evenString);
             }
         }
+        public static void Day7()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] arr_temp = Console.ReadLine().Split(' ');
+            int[] arr = Array.ConvertAll(arr_temp, Int32.Parse);
+            for (int i = n; i >= 0; i--)
+            {
+                Console.Write(arr[i - 1] + " ");
+            }
+        }
     }
 }
