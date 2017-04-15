@@ -125,5 +125,17 @@ namespace HackerRank.Solutions
                 }
             }
         }
+        public static void Day9()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(factorial(n));
+
+        }
+        static int factorial(int number)
+        {
+            if (number <= 1)
+                return 1;
+            return number * factorial(number - 1);
+        }    
     }
 }
