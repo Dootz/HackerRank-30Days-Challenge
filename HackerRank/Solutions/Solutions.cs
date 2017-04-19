@@ -136,6 +136,90 @@ namespace HackerRank.Solutions
             if (number <= 1)
                 return 1;
             return number * factorial(number - 1);
-        }    
+        }
+        public static void Day10()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            int maxSum = 0;
+            string binary = Convert.ToString(n, 2);
+            Console.WriteLine(Convert.ToString(binary));
+            for (int i = 0; i < binary.Length - 1; i++)
+            {                
+                char s = binary[i];
+                
+               if(i == 0)
+                {
+                    if (s == 49)
+                    {
+                        sum++;
+                        if(sum > maxSum)
+                        maxSum = sum;
+                    }
+                }
+                else
+                {
+                    char c = binary[i - 1];
+                    if(s == 49 && maxSum == 0)
+                    {
+                        sum++;
+                        maxSum = sum;
+                    }
+                    else if(s == 49 && c == 49)
+                    {
+                        sum++;
+                        if (sum > maxSum)
+                            maxSum = sum;
+                    }
+                    else
+                    {
+                        sum = 0;
+                    }
+                }
+            }
+            Console.WriteLine(Convert.ToString(maxSum));
+            Console.ReadLine();
+        }
+        public static void Day11()
+        {
+            int[][] arr = new int[6][];
+            int maxSum = -50;
+            int sum = 0;
+            for (int arr_i = 0; arr_i < 6; arr_i++)
+            {
+                string[] arr_temp = Console.ReadLine().Split(' ');
+                arr[arr_i] = Array.ConvertAll(arr_temp, Int32.Parse);
+            }
+            for (int k = 1; k <= 4; k++)
+            {
+                for (int j = 1; j <= 4; j++)
+                {
+                    sum = arr[k][j] + arr[k - 1][j - 1] + arr[k - 1][j] + arr[k - 1][j + 1] + arr[k + 1][j - 1] + arr[k + 1][j] + arr[k + 1][j + 1];
+                    if (sum > maxSum)
+                        maxSum = sum;
+                    sum = 0;
+                }
+            }
+            Console.WriteLine(maxSum);
+        } 
+        public static void Day12()
+        {
+            string[] inputs = Console.ReadLine().Split();
+            string firstName = inputs[0];
+            string lastName = inputs[1];
+            int id = Convert.ToInt32(inputs[2]);
+            int numScores = Convert.ToInt32(Console.ReadLine());
+            inputs = Console.ReadLine().Split();
+            int[] scores = new int[numScores];
+            for (int i = 0; i < numScores; i++)
+            {
+                scores[i] = Convert.ToInt32(inputs[i]);
+            }
+
+            Student s = new Student(firstName, lastName, id, scores);
+            s.printPerson();
+            Console.WriteLine("Grade: " + s.Calculate() + "\n");
+            Console.ReadLine();
+        }     
     }
 }
