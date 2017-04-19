@@ -220,6 +220,13 @@ namespace HackerRank.Solutions
             s.printPerson();
             Console.WriteLine("Grade: " + s.Calculate() + "\n");
             Console.ReadLine();
-        }     
+        } 
+        public static void Day13()
+        {
+            String title = Console.ReadLine();
+            String author = Console.ReadLine();
+            int price = Int32.Parse(Console.ReadLine());
+            Book new_novel = new MyBook(title, author, price);
+            new_novel.display();
     }
 }
