@@ -241,6 +241,44 @@ namespace HackerRank.Solutions
 
             Console.Write(d.maximumDifference);
         }  
-         
+        public static void Day15()
+        {
+            Node head = null;
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                int data = Int32.Parse(Console.ReadLine());
+                head = insert(head, data);
+            }
+            display(head);
+        }
+        public static void display(Node head)
+        {
+            Node start = head;
+            while (start != null)
+            {
+                Console.Write(start.data + " ");
+                start = start.next;
+            }
+        }
+        public static Node insert(Node head, int data)
+        {
+            if (head == null)
+            {
+                return new Node(data);
+            }
+            else
+            {
+                Node tempNode = head;
+                while(tempNode.next != null)
+                {
+                    tempNode = tempNode.next;
+                }
+                Node tempNode2 = new Node(data);
+                tempNode.next = tempNode2;
+                return head;
+            }
+        }
+
     }
 }
