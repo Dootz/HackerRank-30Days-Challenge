@@ -252,6 +252,20 @@ namespace HackerRank.Solutions
             }
             display(head);
         }
+        public static void Day16()
+        {
+            string S = Console.ReadLine();
+            try
+            {
+                int value = Convert.ToInt32(S);
+                Console.WriteLine(value);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Bad String");
+            }
+        }
+
         public static void display(Node head)
         {
             Node start = head;
