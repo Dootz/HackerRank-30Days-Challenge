@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace HackerRank.Solutions
 {
@@ -14,7 +14,6 @@ namespace HackerRank.Solutions
             int ii;
             double dd;
             string ss;
-
             Double.TryParse(Console.ReadLine(), out dd);
             Int32.TryParse(Console.ReadLine(), out ii);
             
@@ -263,6 +262,27 @@ namespace HackerRank.Solutions
             catch(Exception e)
             {
                 Console.WriteLine("Bad String");
+            }
+        }
+        public static  void Day17()
+        {
+            Calculator myCalculator = new Calculator();
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                string[] num = Console.ReadLine().Split();
+                int n = int.Parse(num[0]);
+                int p = int.Parse(num[1]);
+                try
+                {
+                    int ans = myCalculator.power(n, p);
+                    Console.WriteLine(ans);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+
+                }
             }
         }
 
