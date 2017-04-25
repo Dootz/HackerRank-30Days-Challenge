@@ -285,6 +285,13 @@ namespace HackerRank.Solutions
                 }
             }
         }
+        public static void Day19()
+        {
+            int n = Int32.Parse(Console.ReadLine());
+            AdvancedArithmetic myCalculator = new Calculator_Day19();
+            int sum = myCalculator.divisorSum(n);
+            Console.WriteLine("I implemented: AdvancedArithmetic\n" + sum);
+        }
 
         public static void display(Node head)
         {
