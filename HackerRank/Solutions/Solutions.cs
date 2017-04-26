@@ -331,6 +331,35 @@ namespace HackerRank.Solutions
             int sum = myCalculator.divisorSum(n);
             Console.WriteLine("I implemented: AdvancedArithmetic\n" + sum);
         }
+        public static void Day20()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] a_temp = Console.ReadLine().Split(' ');
+            int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+            // Write Your Code Here
+            int numberOfSwaps = 0;
+            int temp = 0;
+            int tempSwapCounter = 1;
+            while(tempSwapCounter != 0)
+            {
+                tempSwapCounter = 0;
+                for (int i = 0; i <= n - 2; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        numberOfSwaps++;
+                        temp = a[i];
+                        a[i] = a[i + 1];
+                        a[i + 1] = temp;
+                        tempSwapCounter++;
+                    }
+                }
+
+            }
+            Console.WriteLine("Array is sorted in " + numberOfSwaps + " swaps.");
+            Console.WriteLine("First Element: " + a[0]);
+            Console.WriteLine("Last Element: " + a[n - 1]);
+        }
 
         public static void display(Node head)
         {
