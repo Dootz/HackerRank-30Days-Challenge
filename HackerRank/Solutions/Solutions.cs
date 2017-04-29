@@ -381,6 +381,35 @@ namespace HackerRank.Solutions
             Printer.PrintArray<String>(stringArray);
         }
 
+        public static void Day22()
+        {
+            Node_Day22 root = null;
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                int data = Int32.Parse(Console.ReadLine());
+                root = insert(root, data);
+            }
+            int height = getHeight(root);
+            Console.WriteLine(height);
+        }
+
+        public static int getHeight(Node_Day22 root)
+        {
+            int count = 0;
+            if (root == null)
+                return 0;
+            int left = getHeight(root.left);
+            int right = getHeight(root.right);
+
+            if (left > right)
+                count = left + 1;
+            else
+                count = right + 1;
+
+            return count;
+        }
+
         public static void display(Node head)
         {
             Node start = head;
@@ -390,6 +419,29 @@ namespace HackerRank.Solutions
                 start = start.next;
             }
         }
+        public static Node_Day22 insert(Node_Day22 root, int data)
+        {
+            if (root == null)
+            {
+                return new Node_Day22(data);
+            }
+            else
+            {
+                Node_Day22 cur;
+                if (data <= root.data)
+                {
+                    cur = insert(root.left, data);
+                    root.left = cur;
+                }
+                else
+                {
+                    cur = insert(root.right, data);
+                    root.right = cur;
+                }
+                return root;
+            }
+        }
+
         public static Node insert(Node head, int data)
         {
             if (head == null)
